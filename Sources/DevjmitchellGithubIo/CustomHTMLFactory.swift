@@ -21,9 +21,10 @@ private struct CustomHTMLFactory<Site: Website>: HTMLFactory {
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
-                    H1(index.title)
-                    Paragraph(context.site.description)
-                        .class("description")
+                    Paragraph(index.body)
+//                    H1(index.title)
+//                    Paragraph(context.site.description)
+//                        .class("description")
 //                    H2("Latest content")
 //                    ItemList(
 //                        items: context.allItems(
