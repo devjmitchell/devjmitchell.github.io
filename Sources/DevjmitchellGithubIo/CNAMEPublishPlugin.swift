@@ -1,6 +1,9 @@
 import Foundation
 import Publish
 
+// From: https://github.com/SwiftyGuerrero/CNAMEPublishPlugin
+// The plugin was using an old version of Publish, so it wouldn't build. That's why it's added locally.
+
 /// Supported errors that can occur with CNAME file generation.
 enum CNAMEGenerationError: LocalizedError, CustomStringConvertible {
     
