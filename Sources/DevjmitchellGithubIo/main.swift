@@ -25,5 +25,6 @@ struct DevjmitchellGithubIo: Website {
 // This will generate your website using the built-in Foundation theme:
 try DevjmitchellGithubIo().publish(
     withTheme: .foundation,
-    deployedUsing: .gitHub("devjmitchell/devjmitchell.github.io", useSSH: false)
+    deployedUsing: .gitHub("devjmitchell/devjmitchell.github.io", useSSH: false),
+    plugins: [.generateCNAME(with: "jasonmitchell.io", "www.jasonmitchell.io")]
 )
