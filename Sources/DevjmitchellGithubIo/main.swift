@@ -14,7 +14,7 @@ struct DevjmitchellGithubIo: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "devjmitchell.github.io")!
+    var url = URL(string: "https://jasonmitchell.io")!
     var name = "DevjmitchellGithubIo"
     var description = "A description of DevjmitchellGithubIo"
     var language: Language { .english }
