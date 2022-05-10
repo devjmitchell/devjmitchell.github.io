@@ -22,4 +22,7 @@ struct DevjmitchellGithubIo: Website {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try DevjmitchellGithubIo().publish(withTheme: .foundation)
+try DevjmitchellGithubIo().publish(
+    withTheme: .foundation,
+    deployedUsing: .gitHub("devjmitchell/devjmitchell.github.io", useSSH: false)
+)
