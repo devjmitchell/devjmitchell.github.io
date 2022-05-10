@@ -6,7 +6,8 @@ import Plot
 struct DevjmitchellGithubIo: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
-        case posts
+        case blog
+        case about
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -15,8 +16,8 @@ struct DevjmitchellGithubIo: Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://jasonmitchell.io")!
-    var name = "DevjmitchellGithubIo"
-    var description = "A description of DevjmitchellGithubIo"
+    var name = "Jason Mitchell - iOS Engineer"
+    var description = "I’m a U.S. Marine veteran that became a self-taught developer, starting in 2013. I’m always eager to learn new things and have attended code camps, read programming books, and participated in Meetup events. I even started my own Meetup group and co-hosted a podcast, both relating to iOS development and the Swift programming language."
     var language: Language { .english }
     var imagePath: Path? { nil }
 }
