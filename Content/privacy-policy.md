@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Your privacy is important to me. It is my policy to respect your privacy regarding any information I may collect from you across my website, [jasonmitchell.me](https://jasonmitchell.me), and other websites or mobile apps I own and operate.
+Your privacy is important to me. It is my policy to respect your privacy regarding any information I may collect from you across my website, [jasonmitchell.io](https://jasonmitchell.io), and other websites or mobile apps I own and operate.
 
 I only ask for personal information when I truly need it to provide a service to you. I collect it by fair and lawful means, with your knowledge and consent. I also let you know why I’m collecting it and how it will be used.
 

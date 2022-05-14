@@ -7,7 +7,7 @@ extension Theme {
     static var custom: Self {
         Theme(
             htmlFactory: CustomHTMLFactory(),
-            resourcePaths: ["Resources/CustomTheme/styles.css"]
+            resourcePaths: ["Resources/css/styles.css"]
         )
     }
 }
@@ -20,21 +20,8 @@ private struct CustomHTMLFactory<Site: Website>: HTMLFactory {
             .head(for: index, on: context.site),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
-                Wrapper {
-                    Paragraph(index.body)
-//                    H1(index.title)
-//                    Paragraph(context.site.description)
-//                        .class("description")
-//                    H2("Latest content")
-//                    ItemList(
-//                        items: context.allItems(
-//                            sortedBy: \.date,
-//                            order: .descending
-//                        ),
-//                        site: context.site
-//                    )
-                }
-                SiteFooter()
+                Wrapper(index.body)
+                SiteFooter(includeRSS: false)
             }
         )
     }
@@ -47,10 +34,13 @@ private struct CustomHTMLFactory<Site: Website>: HTMLFactory {
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
                 Wrapper {
-                    H1(section.title)
+                    Paragraph(section.body)
                     ItemList(items: section.items, site: context.site)
                 }
-                SiteFooter()
+                
+                // TODO: Figure out a better way to do this!
+                let isBlog = section.id.rawValue == "blog"
+                SiteFooter(includeRSS: isBlog)
             }
         )
     }
@@ -85,7 +75,7 @@ private struct CustomHTMLFactory<Site: Website>: HTMLFactory {
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper(page.body)
-                SiteFooter()
+                SiteFooter(includeRSS: false)
             }
         )
     }
@@ -215,14 +205,22 @@ private struct ItemTagList<Site: Website>: Component {
 }
 
 private struct SiteFooter: Component {
+    let includeRSS: Bool
+    
+    init(includeRSS: Bool = true) {
+        self.includeRSS = includeRSS
+    }
+    
     var body: Component {
         Footer {
             Paragraph {
                 Text("Generated using ")
                 Link("Publish", url: "https://github.com/johnsundell/publish")
             }
-            Paragraph {
-                Link("RSS feed", url: "/feed.rss")
+            if includeRSS {
+                Paragraph {
+                    Link("RSS feed", url: "/feed.rss")
+                }
             }
         }
     }
